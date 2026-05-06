@@ -1,6 +1,6 @@
 # La Roche-Posay RAG Ad Generator
 
-## Personalized Skincare Advertising with RAG
+## Personalized Skincare Advertising with Retrieval-Augmented Generation
 
 This project implements a lightweight Retrieval-Augmented Generation (RAG) pipeline to generate personalized skincare advertisements for La Roche-Posay products.
 
@@ -41,13 +41,15 @@ Products included:
 - Anthelios Ultra Light Fluid Facial Sunscreen SPF 60
 - Toleriane Double Repair Face Moisturizer
 
+Product data was stored in both JSON and TXT formats to support retrieval and prompt context generation.
+
 ---
 
 ## System Design
 
 The project uses a simple Retrieval-Augmented Generation (RAG) workflow:
 
-1. Load product descriptions from JSON knowledge files
+1. Load product descriptions from JSON and TXT knowledge files
 2. Accept a customer skincare profile
 3. Retrieve relevant product context
 4. Inject retrieved context into a prompt
@@ -60,7 +62,7 @@ The project uses a simple Retrieval-Augmented Generation (RAG) workflow:
 ```text
 Customer Profile
        ↓
-Product Retrieval (JSON Knowledge Base)
+Product Retrieval (Knowledge Base)
        ↓
 Prompt Construction
        ↓
@@ -130,15 +132,13 @@ Grounding the model with retrieved product information produced:
 la-roche-posay-rag-ad-generator/
 │
 ├── data/
-│   ├── Anthelios_doc_1.json
-│   ├── Effaclar_doc_2.json
-│   ├── Retinol_B3_doc_3.json
-│   └── Toleriane_doc_4.json
+│   ├── JSON and TXT product knowledge files
 │
 ├── notebooks/
 │   └── skincare_rag_generator.ipynb
 │
-├── images/
+├── report/
+│   └── AI_Powered_Skincare_RAG_Report.pdf
 │
 ├── README.md
 ├── requirements.txt
@@ -152,6 +152,28 @@ la-roche-posay-rag-ad-generator/
 ```bash
 pip install -r requirements.txt
 ```
+
+---
+
+## Project Report
+
+A full written report describing the system architecture, methodology, prompts, generated outputs, and reflections is included in the `/report` directory.
+
+The report covers:
+- RAG system architecture
+- Product knowledge retrieval
+- Prompt engineering
+- Example customer profiles
+- Generated advertisement outputs
+- Reflection and future improvements
+
+---
+
+## Limitations
+
+This project implemented a lightweight RAG pipeline without advanced retrieval methods such as vector embeddings, semantic search, or reranking.
+
+Product retrieval was performed using direct context injection from a small knowledge base. Future iterations could improve scalability and retrieval precision through vector databases and embedding-based retrieval.
 
 ---
 

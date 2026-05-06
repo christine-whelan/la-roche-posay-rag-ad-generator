@@ -1,1 +1,1 @@
-Product knowledge base JSON files used for RAG retrieval
+Load product descriptions from JSON and TXT knowledge files
